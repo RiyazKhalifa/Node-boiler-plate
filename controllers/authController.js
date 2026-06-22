@@ -1,4 +1,4 @@
-const AuthService = require("../services/authService");
+const AuthService = require("../services/AuthService");
 
 class AuthController {
     static async login(req, res, next) {
@@ -54,6 +54,17 @@ class AuthController {
         try {
             const { token } = req.query;
             const result = await AuthService.forceLogout(token);
+            return res.success(result.message, result.data);
+        } catch (err) {
+            next(err);
+        }
+    }
+
+    static async verifyPassword(req, res, next) {
+        try {
+            const { password } = req.body;
+            const userId = req.user.id;
+            const result = await AuthService.verifyPassword(userId, password);
             return res.success(result.message, result.data);
         } catch (err) {
             next(err);

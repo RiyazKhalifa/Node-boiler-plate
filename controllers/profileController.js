@@ -1,6 +1,6 @@
-const ProfileService = require("../services/profileService");
-const { removeFile } = require("../utils/uploadUtils");
-const UserService = require("../services/userService");
+const ProfileService = require("../services/ProfileService");
+const { removeFile } = require("../utils/UploadUtils");
+const UserService = require("../services/UserService");
 
 class ProfileController {
 

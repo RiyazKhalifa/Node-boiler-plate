@@ -1,8 +1,8 @@
 const { User, Role, Permission, sequelize } = require("../models");
-const bcrypt = require("../utils/bcryptUtils");
+const bcrypt = require("../utils/BcryptUtils");
 const { Op, where } = require("sequelize");
 const crypto = require('crypto');
-const emailService = require('../utils/emailService');
+const emailService = require('../utils/EmailService');
 
 class UserService {
     static async getAllUsers(page = 1, limit = 10, search = '', includePermissions = false, sortBy = '', sortOrder = '') {

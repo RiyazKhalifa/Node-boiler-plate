@@ -4,9 +4,10 @@
   "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "startx": "npx dotenvx run -- node app.js",
+    "devx": "npx dotenvx run -- nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,7 +23,7 @@
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.2",
     "mysql2": "^3.14.3",
-    "nodemailer": "^7.0.5",
+    "nodemailer": "^8.0.5",
     "sequelize": "^6.37.7",
     "sequelize-cli": "^6.6.3"
   },

@@ -1,4 +1,4 @@
-const SiteSettingService = require("../services/siteSettingService");
+const SiteSettingService = require("../services/SiteSettingService");
 
 class SiteSettingController {
     static async getAllSiteSettings(req, res) {

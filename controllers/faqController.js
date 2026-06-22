@@ -1,4 +1,4 @@
-const FaqService = require("../services/faqService");
+const FaqService = require("../services/FaqService");
 
 class FaqController {
     static async getAllFaqs(req, res) {

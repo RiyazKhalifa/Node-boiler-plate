@@ -1,4 +1,4 @@
-const { successResponse, errorResponse } = require("../utils/response");
+const { successResponse, errorResponse } = require("../utils/Response");
 
 module.exports = (req, res, next) => {
     res.success = (message, data = {}, status = 200) =>

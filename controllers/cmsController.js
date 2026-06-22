@@ -1,4 +1,4 @@
-const CmsService = require("../services/cmsService");
+const CmsService = require("../services/CmsService");
 
 class CmsController {
     static async getAllCms(req, res) {

@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendNewUserCredentialsEmail = async (email, password, userName) => {
-    const loginUrl = process.env.FRONTEND_URL || 'http://localhost:3000/login';
+    const loginUrl = process.env.FRONTEND_URL;
 
     const message = `
         Hello ${userName || 'User'},
@@ -26,12 +26,12 @@ const sendNewUserCredentialsEmail = async (email, password, userName) => {
         Please change your password after your first login for security reasons.
 
         Regards,
-        Hzaya Team
+        EWW Team
     `;
 
     const htmlMessage = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #333;">Welcome to Hzaya</h2>
+            <h2 style="color: #333;">Welcome to EWW</h2>
             <p>Hello <strong>${userName || 'User'}</strong>,</p>
             <p>Your account has been created successfully. You can login using the credentials below:</p>
             <table style="margin: 20px 0; border-collapse: collapse;">
@@ -49,21 +49,21 @@ const sendNewUserCredentialsEmail = async (email, password, userName) => {
             </p>
             <p>Please change your password after your first login for security reasons.</p>
             <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
-            <p style="color: #666; font-size: 12px;">Regards,<br>Hzaya Team</p>
+            <p style="color: #666; font-size: 12px;">Regards,<br>EWW Team</p>
         </div>
     `;
 
     await transporter.sendMail({
-        from: `"Hzaya Team" <${process.env.SMTP_USER}>`,
+        from: `"EWW Team" <${process.env.SMTP_USER}>`,
         to: email,
-        subject: "Your New Hzaya Account Credentials",
+        subject: "Your New EWW Account Credentials",
         text: message,
         html: htmlMessage
     });
 };
 
 const sendLoginAlertEmail = async (email, deviceInfo, ipAddress, token) => {
-    const forceLogoutUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/force-logout?token=${token}`;
+    const forceLogoutUrl = `${process.env.FRONTEND_URL}/force-logout?token=${token}`;
 
     const message = `
         Hello Admin,
@@ -78,7 +78,7 @@ const sendLoginAlertEmail = async (email, deviceInfo, ipAddress, token) => {
         Force Logout: ${forceLogoutUrl}
 
         Regards,
-        Hzaya Team
+        EWW Team
     `;
 
     const htmlMessage = `
@@ -98,12 +98,12 @@ const sendLoginAlertEmail = async (email, deviceInfo, ipAddress, token) => {
             <p>Or copy and paste this link in your browser:</p>
             <p style="word-break: break-all; color: #666;">${forceLogoutUrl}</p>
             <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
-            <p style="color: #666; font-size: 12px;">Regards,<br>Hzaya Team</p>
+            <p style="color: #666; font-size: 12px;">Regards,<br>EWW Team</p>
         </div>
     `;
 
     await transporter.sendMail({
-        from: `"Hzaya Team" <${process.env.SMTP_USER}>`,
+        from: `"EWW Team" <${process.env.SMTP_USER}>`,
         to: email,
         subject: "New Login Detected",
         text: message,
@@ -112,7 +112,7 @@ const sendLoginAlertEmail = async (email, deviceInfo, ipAddress, token) => {
 };
 
 const sendPasswordResetEmail = async (email, resetToken, userName) => {
-    const resetUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/reset-password?token=${resetToken}`;
+    const resetUrl = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}`;
 
     const message = `
         Hello ${userName || 'Admin'},
@@ -126,7 +126,7 @@ const sendPasswordResetEmail = async (email, resetToken, userName) => {
         If you did not request this password reset, please ignore this email and your password will remain unchanged.
         
         Regards,
-        Hzaya Team
+        EWW Team
     `;
 
     const htmlMessage = `
@@ -142,14 +142,51 @@ const sendPasswordResetEmail = async (email, resetToken, userName) => {
             <p><strong>This link will expire in 1 hour for security reasons.</strong></p>
             <p>If you did not request this password reset, please ignore this email and your password will remain unchanged.</p>
             <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
-            <p style="color: #666; font-size: 12px;">Regards,<br>Hzaya Team</p>
+            <p style="color: #666; font-size: 12px;">Regards,<br>EWW Team</p>
         </div>
     `;
 
     await transporter.sendMail({
-        from: `"Hzaya Team" <${process.env.SMTP_USER}>`,
+        from: `"EWW Team" <${process.env.SMTP_USER}>`,
         to: email,
         subject: "Password Reset Request",
+        text: message,
+        html: htmlMessage
+    });
+};
+
+const sendContactReplyEmail = async (email, name, subject, replyText) => {
+    const message = `
+        Hello ${name},
+
+        Thank you for contacting us. Regarding your inquiry about "${subject}":
+
+        ${replyText}
+
+        If you have any further questions, feel free to reach out.
+
+        Regards,
+        EWW Team
+    `;
+
+    const htmlMessage = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #333;">Reply to Your Inquiry</h2>
+            <p>Hello <strong>${name}</strong>,</p>
+            <p>Thank you for contacting us. Regarding your inquiry about "<strong>${subject}</strong>":</p>
+            <div style="background-color: #f8f9fa; border-left: 4px solid #007bff; padding: 15px; margin: 20px 0;">
+                ${replyText.replace(/\n/g, '<br>')}
+            </div>
+            <p>If you have any further questions, feel free to reach out.</p>
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
+            <p style="color: #666; font-size: 12px;">Regards,<br>EWW Team</p>
+        </div>
+    `;
+
+    await transporter.sendMail({
+        from: `"EWW Team" <${process.env.SMTP_USER}>`,
+        to: email,
+        subject: `Re: ${subject}`,
         text: message,
         html: htmlMessage
     });
@@ -158,5 +195,6 @@ const sendPasswordResetEmail = async (email, resetToken, userName) => {
 module.exports = {
     sendNewUserCredentialsEmail,
     sendLoginAlertEmail,
-    sendPasswordResetEmail
+    sendPasswordResetEmail,
+    sendContactReplyEmail
 };

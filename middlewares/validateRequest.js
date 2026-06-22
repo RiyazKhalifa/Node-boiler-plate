@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator");
-const { removeFile } = require("../utils/uploadUtils");
+const { removeFile } = require("../utils/UploadUtils");
 
 module.exports = (req, res, next) => {
     const errors = validationResult(req);

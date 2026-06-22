@@ -53,7 +53,11 @@
         "module_required": "Module is required",
         "id_required": "ID is required",
         "id_must_be_number": "ID must be a number",
-        "invalid_module": "Invalid module"
+        "invalid_module": "Invalid module",
+        "app_settings_must_be_object": "Application settings must be an object",
+        "customer_id_required": "Customer is required",
+        "message_required": "Message is required",
+        "invalid_type": "Invalid notification type"
     },
     "messages": {
         "login_success": "Login successful",
@@ -96,9 +100,14 @@
         "site_setting_updated": "Site setting updated successfully",
         "site_settings_updated": "Site settings updated successfully",
         "status_updated": "Status updated successfully",
-        "sequence_updated": "Sequence updated successfully"
+        "sequence_updated": "Sequence updated successfully",
+        "app_settings_updated": "Application settings updated successfully",
+        "notifications_retrieved": "Notifications retrieved successfully",
+        "notification_created": "Notification sent successfully",
+        "notification_deleted": "Notification deleted successfully"
     },
     "errors": {
+        "invalid_password": "Invalid password",
         "invalid_credentials": "Invalid email or password",
         "invalid_refresh_token": "Invalid or expired refresh token",
         "invalid_token": "Invalid token",
@@ -123,6 +132,7 @@
         "cms_not_found": "CMS content not found",
         "cms_slug_already_exists": "CMS slug already exists",
         "faq_not_found": "FAQ not found",
-        "invalid_site_key": "Invalid site key"
+        "invalid_site_key": "Invalid site key",
+        "notification_not_found": "Notification not found"
     }
 }

@@ -41,6 +41,10 @@ class AuthValidator {
             .isLength({ min: 6 }).withMessage((value, { req }) => req.t("validation.password_min_length"))
     ];
 
+    static verifyPasswordValidator = [
+        body("password")
+            .notEmpty().withMessage((value, { req }) => req.t("validation.password_required"))
+    ];
 }
 
 module.exports = AuthValidator;

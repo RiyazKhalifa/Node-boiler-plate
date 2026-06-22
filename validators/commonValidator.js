@@ -5,7 +5,7 @@ class CommonValidator {
         body('module')
             .notEmpty().withMessage((value, { req }) => req.t("validation.module_required"))
             .bail()
-            .isIn(['user', 'faq', 'role', 'customer']).withMessage((value, { req }) => req.t("validation.invalid_module")),
+            .isIn(['user', 'faq', 'role', 'customer', 'contact']).withMessage((value, { req }) => req.t("validation.invalid_module")),
 
         body('id')
             .notEmpty().withMessage((value, { req }) => req.t("validation.id_required"))
@@ -22,7 +22,7 @@ class CommonValidator {
         body('module')
             .notEmpty().withMessage((value, { req }) => req.t("validation.module_required"))
             .bail()
-            .isIn(['user', 'faq', 'role', 'permission']).withMessage((value, { req }) => req.t("validation.invalid_module")),
+            .isIn(['user', 'faq', 'role', 'permission', 'customer', 'contact']).withMessage((value, { req }) => req.t("validation.invalid_module")),
 
         body('id')
             .notEmpty().withMessage((value, { req }) => req.t("validation.id_required"))

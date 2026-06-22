@@ -1,18 +1,21 @@
 const db = require('../models');
-const { User, Faq, Role, Permission, Customer } = db;
 const sequelize = db.sequelize;
 
-const models = {
-    user: User,
-    faq: Faq,
-    role: Role,
-    permission: Permission,
-    customer: Customer
+const getModel = (module) => {
+    const modelMap = {
+        user: db.User,
+        faq: db.Faq,
+        role: db.Role,
+        permission: db.Permission,
+        customer: db.Customer,
+        contact: db.ContactUs,
+    };
+    return modelMap[module];
 };
 
 class CommonService {
     static async updateStatus(module, id, status) {
-        const Model = models[module];
+        const Model = getModel(module);
         if (!Model) {
             throw { status: 400, message: 'errors.invalid_module' };
         }
@@ -29,7 +32,7 @@ class CommonService {
     }
 
     static async deleteEntity(module, id) {
-        const Model = models[module];
+        const Model = getModel(module);
         if (!Model) {
             throw { status: 400, message: 'errors.invalid_module' };
         }
@@ -44,7 +47,7 @@ class CommonService {
     }
 
     static async adjustSequences(module, sequences) {
-        const Model = models[module];
+        const Model = getModel(module);
         if (!Model) {
             throw { status: 400, message: 'errors.invalid_module' };
         }

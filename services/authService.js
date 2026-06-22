@@ -1,7 +1,7 @@
 const { User, UserSession, Role, Permission } = require("../models");
-const { generateTokens, generateAccessToken } = require("../utils/generateTokens");
-const { comparePassword, hashPassword } = require("../utils/bcryptUtils");
-const { sendPasswordResetEmail, sendLoginAlertEmail } = require("../utils/emailService");
+const { generateTokens, generateAccessToken } = require("../utils/GenerateTokens");
+const { comparePassword, hashPassword } = require("../utils/BcryptUtils");
+const { sendPasswordResetEmail, sendLoginAlertEmail } = require("../utils/EmailService");
 const crypto = require("crypto");
 const { Op } = require("sequelize");
 
@@ -184,6 +184,19 @@ class AuthService {
         return {
             message: "messages.force_logout_success",
             data: null
+        };
+    }
+
+    static async verifyPassword(userId, password) {
+        const user = await User.findByPk(userId);
+        if (!user) throw { status: 404, message: "errors.user_not_found" };
+
+        const isValid = await comparePassword(password, user.password);
+        if (!isValid) throw { status: 401, message: "errors.invalid_password" };
+
+        return {
+            message: "messages.password_verified",
+            data: { isValid: true }
         };
     }
 }

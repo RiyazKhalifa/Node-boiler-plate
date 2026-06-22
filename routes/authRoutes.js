@@ -1,6 +1,7 @@
-const AuthController = require('../controllers/authController');
-const AuthValidator = require('../validators/authValidator');
-const ValidateRequest = require('../middlewares/validateRequest');
+const AuthController = require('../controllers/AuthController');
+const AuthValidator = require('../validators/AuthValidator');
+const ValidateRequest = require('../middlewares/ValidateRequest');
+const AuthMiddleware = require("../middlewares/AuthMiddleware");
 
 const express = require('express');
 const router = express.Router();
@@ -38,6 +39,14 @@ router.post(
 router.get(
     "/force-logout",
     AuthController.forceLogout
+);
+
+router.post(
+    "/verify-password",
+    AuthMiddleware,
+    AuthValidator.verifyPasswordValidator,
+    ValidateRequest,
+    AuthController.verifyPassword,
 );
 
 module.exports = router;

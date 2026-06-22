@@ -4,9 +4,9 @@ process.env.TZ = process.env.TIMEZONE || 'Asia/Kolkata';
 const express = require("express");
 const cors = require("cors");
 const routes = require("./routes");
-const errorHandler = require("./middlewares/errorHandler");
-const responseHandler = require("./middlewares/responseHandler");
-const { logReqRes } = require("./middlewares/logsMiddleware");
+const errorHandler = require("./middlewares/ErrorHandler");
+const responseHandler = require("./middlewares/ResponseHandler");
+const { logReqRes } = require("./middlewares/LogsMiddleware");
 const { i18next, middleware } = require("./config/i18n");
 const path = require("path");
 

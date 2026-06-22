@@ -1,4 +1,4 @@
-const { errorResponse } = require("../utils/response");
+const { errorResponse } = require("../utils/Response");
 
 module.exports = (err, req, res, next) => {
     console.error(err);

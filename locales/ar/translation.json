@@ -53,7 +53,8 @@
         "module_required": "الوحدة مطلوبة",
         "id_required": "المعرف مطلوب",
         "id_must_be_number": "يجب أن يكون المعرف رقمًا",
-        "invalid_module": "الوحدة غير صالحة"
+        "invalid_module": "الوحدة غير صالحة",
+        "app_settings_must_be_object": "يجب أن تكون إعدادات التطبيق كائنًا"
     },
     "messages": {
         "login_success": "تم تسجيل الدخول بنجاح",
@@ -96,9 +97,11 @@
         "site_setting_updated": "تم تحديث إعداد الموقع بنجاح",
         "site_settings_updated": "تم تحديث إعدادات الموقع بنجاح",
         "status_updated": "تم تحديث الحالة بنجاح",
-        "sequence_updated": "تم تحديث التسلسل بنجاح"
+        "sequence_updated": "تم تحديث التسلسل بنجاح",
+        "app_settings_updated": "تم تحديث إعدادات التطبيق بنجاح"
     },
     "errors": {
+        "invalid_password": "كلمة المرور غير صحيحة",
         "invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
         "invalid_refresh_token": "رمز التحديث غير صالح أو منتهي الصلاحية",
         "invalid_token": "رمز غير صالح",

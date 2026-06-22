@@ -1,6 +1,6 @@
 'use strict';
 const { Role, User } = require("../models");
-const { hashPassword } = require('../utils/bcryptUtils');
+const { hashPassword } = require('../utils/BcryptUtils');
 
 module.exports = {
     async up(queryInterface, Sequelize) {

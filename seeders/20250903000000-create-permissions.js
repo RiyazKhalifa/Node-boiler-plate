@@ -29,9 +29,20 @@ module.exports = {
             { name: 'faq.delete', name_ar: 'حذف السؤال الشائع' },
             { name: 'site_setting.list', name_ar: 'قائمة إعدادات الموقع' },
             { name: 'site_setting.update', name_ar: 'تحديث إعداد الموقع' },
-            { name: 'status.update', name_ar: 'تحديث عام' },
-            { name: 'record.delete', name_ar: 'حذف عام' },
-            { name: 'sequence.update', name_ar: 'تحديث عام' },
+            { name: 'app_setting.list', name_ar: 'قائمة إعدادات التطبيق' },
+            { name: 'app_setting.update', name_ar: 'تحديث إعدادات التطبيق' },
+            { name: 'status.update', name_ar: 'تحديث الحالة' },
+            { name: 'record.delete', name_ar: 'حذف السجل' },
+            { name: 'sequence.update', name_ar: 'تحديث التسلسل' },
+            { name: 'app_translation.list', name_ar: 'قائمة ترجمات التطبيق' },
+            { name: 'app_translation.view', name_ar: 'عرض ترجمة التطبيق' },
+            { name: 'app_translation.create', name_ar: 'إنشاء ترجمة التطبيق' },
+            { name: 'app_translation.update', name_ar: 'تحديث ترجمة التطبيق' },
+            { name: 'contact.list', name_ar: 'قائمة جهات الاتصال' },
+            { name: 'contact.view', name_ar: 'عرض جهة الاتصال' },
+            { name: 'contact.reply', name_ar: 'الرد على جهة الاتصال' },
+            { name: 'contact.delete', name_ar: 'حذف جهة الاتصال' },
+            { name: 'notification.list', name_ar: 'قائمة الإشعارات' }
         ];
 
         for (const permission of permissions) {

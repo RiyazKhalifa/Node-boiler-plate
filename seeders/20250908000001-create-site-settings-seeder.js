@@ -5,9 +5,9 @@ const { SiteSetting } = require('../models');
 module.exports = {
     async up(queryInterface, Sequelize) {
         const siteSettings = [
-            { site_key: 'instagram_url', site_value: '' },
-            { site_key: 'twitter_url', site_value: '' },
-            { site_key: 'facebook_url', site_value: '' }
+            { site_key: 'instagram_url', site_value: 'https://www.instagram.com/' },
+            { site_key: 'twitter_url', site_value: 'https://twitter.com/' },
+            { site_key: 'facebook_url', site_value: 'https://www.facebook.com/' }
         ];
 
         for (const setting of siteSettings) {

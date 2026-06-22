@@ -1,5 +1,5 @@
-const UserService = require("../services/userService");
-const { removeFile } = require("../utils/uploadUtils");
+const UserService = require("../services/UserService");
+const { removeFile } = require("../utils/UploadUtils");
 
 class UserController {
     static async getAllUsers(req, res) {

@@ -1,9 +1,9 @@
 const express = require('express');
-const authMiddleware = require("../middlewares/authMiddleware");
-const checkPermission = require("../middlewares/permissionMiddleware");
-const validateRequest = require("../middlewares/validateRequest");
-const rolePermissionController = require('../controllers/rolePermissionController');
-const rolePermissionValidator = require('../validators/rolePermissionValidator');
+const authMiddleware = require("../middlewares/AuthMiddleware");
+const checkPermission = require("../middlewares/PermissionMiddleware");
+const validateRequest = require("../middlewares/ValidateRequest");
+const rolePermissionController = require('../controllers/RolePermissionController');
+const rolePermissionValidator = require('../validators/RolePermissionValidator');
 
 const router = express.Router();
 router.use(authMiddleware);
