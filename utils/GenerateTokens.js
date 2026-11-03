@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { parseExpiryToMs } = require("./common");
+const { parseExpiryToMs } = require("./Common");
 
 const generateTokens = (user) => {
     const payload = {

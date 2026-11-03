@@ -1,5 +1,5 @@
 const { User, UserSession } = require("../models");
-const bcrypt = require("../utils/bcryptUtils");
+const bcrypt = require("../utils/BcryptUtils");
 
 class ProfileService {
 
